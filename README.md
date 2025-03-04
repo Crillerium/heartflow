@@ -27,24 +27,27 @@
 - pip 包管理器
 
 ### 安装步骤
-```bash
-# 克隆仓库
-git clone https://github.com/yourusername/cli-notebook.git
-cd cli-notebook
 
-# 安装依赖
-pip install questionary
+1. 使用pip安装
+```
+pip install heartflow
+```
+
+2. 下载[Releases](https://github.com/Crillerium/heartflow/releases)安装
+```
+pip install path/to/file.whl
 ```
 
 ### 使用指南
 ```bash
 # 启动应用
-python notebook.py
+$ hf
+或
+$ python -m heartflow
 
 # 主菜单示例
 [📔 欢迎使用命令行记事本]
-```
-```
+
 请选择操作:
   添加笔记
   查看所有笔记

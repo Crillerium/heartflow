@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 from questionary import prompt, select, text, confirm
 from questionary import Style
+import importlib.resources as pkg
 
 # 自定义样式
 custom_style = Style([
@@ -13,7 +14,7 @@ custom_style = Style([
 ])
 
 # 数据文件路径
-NOTES_FILE = "notes.json"
+NOTES_FILE = pkg.path("heartflow","notes.json")
 
 def load_notes():
     """加载所有笔记"""
