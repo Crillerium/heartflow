@@ -14,7 +14,7 @@ custom_style = Style([
 ])
 
 with pkg.path("heartflow","notes.json") as f:
-    NOTES_FILE = pkg.path("heartflow","notes.json")
+    NOTES_FILE = f
 
 def load_notes():
     """加载所有笔记"""
