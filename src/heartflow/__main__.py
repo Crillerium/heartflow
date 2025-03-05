@@ -13,8 +13,8 @@ custom_style = Style([
     ('pointer', 'fg:#FF9D00 bold'),    # 选择指针
 ])
 
-# 数据文件路径
-NOTES_FILE = pkg.path("heartflow","notes.json")
+with pkg.path("heartflow","notes.json") as f:
+    NOTES_FILE = pkg.path("heartflow","notes.json")
 
 def load_notes():
     """加载所有笔记"""
