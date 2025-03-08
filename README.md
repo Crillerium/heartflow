@@ -28,14 +28,9 @@
 
 ### 安装步骤
 
-1. 使用pip安装
+使用pip安装
 ```
 pip install heartflow
-```
-
-2. 下载[Releases](https://github.com/Crillerium/heartflow/releases)安装
-```
-pip install path/to/file.whl
 ```
 
 ### 使用指南
