@@ -57,21 +57,44 @@ def add_note():
     print("\n✅ 笔记已保存！\n")
 
 def view_notes():
-    """查看所有笔记"""
+    """查看所有笔记（优化版）"""
     notes = load_notes()
     if not notes:
         print("\n📭 当前没有笔记\n")
         return
-    
-    # 按时间倒序排列
+
     notes_sorted = sorted(notes, key=lambda x: x["timestamp"], reverse=True)
     
-    for idx, note in enumerate(notes_sorted, 1):
-        print(f"\n📖 笔记 {idx}")
-        print(f"标题: {note['title']}")
-        print(f"时间: {note['timestamp']}")
-        print(f"内容:\n{note['content']}\n")
-        print("-" * 40)
+    # 创建带索引的选择项
+    choices = [
+        Choice(
+            f"{note['title']} ({note['timestamp']})",
+            value=idx
+        ) for idx, note in enumerate(notes_sorted)
+    ]
+    choices.append(Choice("↩️ 返回主菜单", value=-1))
+
+    selected_idx = select(
+        "请选择要查看的笔记:",
+        choices=choices,
+        style=custom_style
+    ).ask()
+
+    if selected_idx == -1:
+        return
+
+    selected_note = notes_sorted[selected_idx]
+    
+    # 详细显示笔记内容
+    print("\n" + "="*40)
+    print(f"📖 笔记详情".center(40))
+    print("="*40)
+    print(f"标题: {selected_note['title']}")
+    print(f"时间: {selected_note['timestamp']}")
+    print("\n内容:")
+    print("-"*40)
+    print(selected_note['content'])
+    print("="*40 + "\n")
 
 def search_notes():
     """搜索笔记"""
